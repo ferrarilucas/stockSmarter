@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(15, 15, 126);
+    color: #ddd;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+input, img, button{
+    display: block;
+    margin: auto;
+}
+input{
+    margin-bottom: 1em;
+    border: none;
+    padding: .5em;
+    border-radius: 15px;
+    width: 20em;
+    background-color: rgb(235, 232, 232);
+}
+input:focus{
+    border: transparent;
+
+}
+
+button{
+    width: 20em;
+    height: 2.3em;
+    border-radius: 15px;
+    background-color: rgb(235, 232, 232);
+    border: none;
+}
