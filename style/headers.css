@@ -1,21 +1,42 @@
-.form-control-dark {
-  border-color: var(--bs-gray);
+body{
+  margin: 0;
+  padding: 0;
+  background-color: whitesmoke;
 }
-.form-control-dark:focus {
-  border-color: #fff;
-  box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+.container{
+  padding: 10px;
 }
-
-.text-small {
-  font-size: 85%;
-}
-
-.dropdown-toggle {
-  outline: 0;
-}
-
-.teste a{
-  text-decoration: none;
-  color: white;
+.bg-secondary{
+  background-color: #4682B4 !important;
 }
   
+.main-box{
+  margin-top: 10vh;
+  margin: auto;
+  display: flex;
+  height: 60vh;
+  width: 60vw;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+.card-box{
+  width: 10vw;
+  height: 20vh;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  box-shadow: #999 1px 1px 5px;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 5vh;
+
+}
+
+.card-box p{
+  font-size: 15px;
+}
+
+.card-box:hover{
+  opacity: 85%;
+  cursor: pointer;
+}
