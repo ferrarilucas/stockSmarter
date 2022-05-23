@@ -37,6 +37,8 @@ body{
 }
 
 .card-box:hover{
-  opacity: 85%;
+  background-color: #a0a0a0;
+  opacity: 95%;
   cursor: pointer;
+  transition: all 0.2s ease-in;
 }
