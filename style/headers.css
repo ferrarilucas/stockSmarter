@@ -20,6 +20,7 @@ body{
   align-items: center;
   
 }
+
 .card-box{
   width: 10vw;
   height: 20vh;
@@ -37,8 +38,39 @@ body{
 }
 
 .card-box:hover{
-  background-color: #a0a0a0;
+  background-color: #A9A9A9;
   opacity: 95%;
   cursor: pointer;
-  transition: all 0.2s ease-in;
+  transition: all 0.25s ease-in;
+}
+
+@media (max-width: 1100px)
+{
+  .main-box{
+    width: 80%;
+    justify-content: space-evenly;
+   
+  }
+
+  .card-box{
+   width: 100%;
+   margin: 10px;
+  
+  
+  }
+}
+
+@media (max-width: 800px)
+{
+  .main-box{
+    display: inline;
+    width: 100%;
+  }
+
+  .card-box{
+    margin: auto;
+    width: 50%;
+  
+  
+  }
 }
