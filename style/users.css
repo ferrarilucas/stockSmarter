@@ -15,7 +15,7 @@ body{
 .main-box{
     margin-top: 10vh;
     margin: auto;
-    height: 60vh;
+    height: 70vh;
     width: 70vw;
     background-color: #d3d3d3;
     border-radius: 5px;
@@ -29,13 +29,14 @@ body{
 }
 
 .main-title h1{
-    margin: 50px;
+    margin: 40px;
     margin-left: 0;
 }
 
 .options-box{
     display: flex;
     width: 100%;
+   
 }
 
 .options-box button{
