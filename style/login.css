@@ -31,16 +31,15 @@
     background-color: #4682B4;
     display: flex;
     justify-content: center;
-    align-items: cnter;
+    align-items: center;
     width: 50%;
     height: 100%;
 }
 .form-box{
     border-radius: 10px;
-    height: 70%;
+    height: 50%;
 }
 .content-box .form-box{
-    margin-top: 24%;
     width: 50%;
 }
 
