@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    
+
 }
 
 .container-login{
@@ -24,7 +24,7 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    
+
 }
 
 .content-box{
@@ -54,7 +54,8 @@
 .content-box .form-box .input-box{
     margin-bottom: 20px;
 }
-.content-box .form-box .input-box input{
+.content-box .form-box .input-box input,
+.content-box .form-box .input-box button{
     width: 100%;
     padding: 10px;
     outline: none;
@@ -74,11 +75,12 @@
     font-weight: 400;
 }
 
-.content-box .form-box .input-box input::placeholder{
+.content-box .form-box .input-box input::placeholder,
+.content-box .form-box .input-box button::placeholder{
     color: #a9adb6;
 }
 
-.content-box .form-box .input-box input[type=submit]{
+.content-box .form-box .input-box button{
     background: #4aa4ee;
     color: #fff;
     outline: none;
@@ -89,9 +91,9 @@
     transition: 0.3s;
 }
 
-.content-box .form-box .input-box input[type=submit]:hover{
+.content-box .form-box .input-box button:hover{
     background: #3286ca;
-   
+
 }
 
 .content-box .form-box .remember{
