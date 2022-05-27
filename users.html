@@ -52,6 +52,25 @@
         </div>
       </header>
 
+      <div class='form form-add'>
+        <form class='register'>
+            <div class='form-container'>
+                <span class="material-icons-sharp close"><i class="fa-solid fa-circle-xmark"></i></span>
+                <span class=form-title>Cadastrar</span>
+                <input type='text' required class='form-name' name='name' placeholder="Nome">
+                <input type='text' required class='form-email' name='user' placeholder="Usuário">
+                <input type='text' required class='form-phone' name='id' placeholder="ID">
+                <input type='password' required class='form-senha' name='password' placeholder="Senha">
+                <div>
+                    <label>
+                    <input type='checkbox' class='form-admin' name='admin'>
+                    Administrador</label>
+                </div>
+                <span class="material-icons-sharp check"><i class="fa-solid fa-check"></i></span>
+            </div>
+        </form>
+    </div>
+
       <div class="main-title">
          <h1>Usuários</h1>
       </div>
@@ -59,7 +78,7 @@
         <div>
           <div class="main-box">
               <div class="options-box">
-                  <button><i class="fa-solid fa-circle-plus"></i> CADASTRAR USUÁRIO</button>
+                  <button class="addUser"><i class="fa-solid fa-circle-plus"></i> CADASTRAR USUÁRIO</button>
               </div>   
               <hr>
               <div class="user-inform">
@@ -96,4 +115,6 @@
       <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     
 </body>
+<script src="/Source/controllers/UserController.js"></script>
+<script src="/Source/app.js"></script>
 </html>
