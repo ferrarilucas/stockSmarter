@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+.container{
+    padding: 10px;
+  }
+
+.bg-secondary{
+    background-color: #4682B4 !important;
+  }
+
+.main-box{
+    margin-top: 10vh;
+    margin: auto;
+    height: 70vh;
+    width: 70vw;
+    background-color: #d3d3d3;
+    border-radius: 5px;
+    box-shadow: #999 1px 1px 5px;
+    text-align: center;
+  }
+
+.main-title{
+    width: 70vw;
+    margin: auto;
+}
+
+.main-title h1{
+    margin: 40px;
+    margin-left: 0;
+}
+
+.options-box{
+    display: flex;
+    width: 100%;
+
+}
+
+.options-box button{
+    padding: 10px;
+    margin: 20px;
+    box-shadow: #999 1px 1px 5px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    border: 0;
+}
+
+button:hover{
+    background-color: #A9A9A9;
+    opacity: 75%;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    color: whitesmoke;
+}
+
+hr{
+    margin: auto;
+    width: 90%;
+}
+
+.user-inform{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.user-inform thead, .user-inform tbody{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+.user-inform tr{
+    display: contents;
+}
+
+
+.user-inform td{
+    margin: 20px;
+    font-size: 15px;
+}
+
+div.form {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.form-container {
+    position: relative;
+    background-color: white;
+    padding: 25px;
+    border-radius: 21px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+div.form-container>* {
+    margin: 5px 0;
+}
+
+div.form-container>input {
+    width: 260px;
+    font-size: 15px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+div.form-container input:focus {
+    outline: 0;
+}
+
+div.form-container>input[type='text'], div.form-container>input[type='password'] {
+    height: 25px;
+    font-size: 18px;
+}
+
+span.form-title {
+    font-size: 30px;
+}
+
+div.form-container span.check {
+    font-size: 30px;
+    position: absolute;
+    left: 25px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+div.form-container span.close {
+    font-size: 30px;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    cursor: pointer;
+}
+
+div.form-container input.form-icon{
+    border:0
+}
