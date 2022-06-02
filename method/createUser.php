@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 include_once('includes.php');
 
@@ -9,6 +10,11 @@ $cpf = preg_replace( '/[^0-9]/is', '', $_REQUEST['cpf'] );
 
 if(!validaCPF($cpf))
     die('{"Status": "Erro02", "Text": "CPF inválido"}');
+
+$res = $gDb->query("SELECT * FROM user u WHERE u.cpf = '".$cpf."' OR login = '".$_REQUEST['email']."';");
+
+if($gDb->affected_rows($res) > 0 && $_REQUEST['e'] == 'add')
+    die('{"Status": "Erro03", "Text": "CPF ou Email já cadastrado"}');
 
 $gDb -> query("INSERT INTO user (name, login, pass, storeId, cpf) VALUES ('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[p]', '$_REQUEST[storelist]' ,'$cpf')");
 

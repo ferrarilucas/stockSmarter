@@ -36,7 +36,7 @@ body{
 .options-box{
     display: flex;
     width: 100%;
-   
+
 }
 
 .options-box button{
@@ -63,10 +63,24 @@ hr{
 
 .user-inform{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
 }
 
-.user-inform h1{
+.user-inform thead, .user-inform tbody{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+.user-inform tr{
+    display: contents;
+}
+
+
+.user-inform td{
     margin: 20px;
     font-size: 15px;
 }

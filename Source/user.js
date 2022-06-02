@@ -90,21 +90,34 @@ const users = (function(){
       }
       console.log(storeList)
 
-      api.post(`createUser.php?name=${name}&email=${email}&cpf=${cpf}&storelist=${storeList}&p=${password}`,{
-        name,
-        email,
-        cpf,
-        storeList,
-        password
-      })
+      api.post(`createUser.php?name=${name}&email=${email}&cpf=${cpf}&storelist=${storeList}&p=${password}&e=add`)
       .then((response) => {
         if(CheckResponse(response)){
           alert('Usuário adicionado com sucesso', 'success')
           $('#userEdit').modal('hide')
         }
+        else{
+          alert(response['Status'], response['Text'])
+        }
       })
     }
 
+    function listUsers(){
+      api.get(`userList.php?I=${user['Id']}`)
+        .then((response) => {
+          if(CheckResponse(response)){
+            const user = response.data.User
+            document.getElementById('users-list').innerHTML = ''
+            user.forEach((key,i) => {
+              document.getElementById('users-list').innerHTML += `<tr>
+                                                                  <td>${user[i].Name}</td>
+                                                                  <td>${user[i].Email}</td>
+                                                                  <td>${user[i].Id}</td>
+                                                                </tr>`
+            })
+          }
+        })
+    }
     return{
         init:function(){
             const btnAdd = document.querySelector('#addUser')
@@ -112,6 +125,7 @@ const users = (function(){
            document.querySelector('#addUser').addEventListener('click', addUser)
 
         // Population Table
+          listUsers()
 
         }
 
