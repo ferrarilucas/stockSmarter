@@ -1,6 +1,6 @@
 
 const backUrl = 'http://localhost/stocksmarter/method/'
-let dlg
+
 const api = axios.create({
   baseURL:  backUrl,
 });
@@ -10,38 +10,6 @@ let MD5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLowerCase()};f
 
 function CheckResponse(res){
   return res.data.Status === 'OK'
-}
-
-function createDialog(title, msg){
-
-  if(dlg == null){
-    dlg =`<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 id="title" class="modal-title" id="exampleModalLongTitle"></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div id="msg"class="modal-body">
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="close btn btn-secondary" data-dismiss="modal">Ok</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>`
-    }
-    $('#ModalCenter #title').innerHTML = msg
-    $('#ModalCenter #msg').innerHTML = title
-    document.querySelector('body').innerHTML += dlg
-
-    $('#ModalCenter').modal('show')
-    $('#ModalCenter .close').on('click', e=>{
-      $('#ModalCenter').modal('hide')
-    })
-
 }
 
 function encode(txt){
