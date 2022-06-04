@@ -109,10 +109,10 @@ const users = (function(){
             const user = response.data.User
             document.getElementById('users-list').innerHTML = ''
             user.forEach((key,i) => {
-              document.getElementById('users-list').innerHTML += `<tr>
-                                                                  <td>${user[i].Name}</td>
-                                                                  <td>${user[i].Email}</td>
-                                                                  <td>${user[i].Id}</td>
+              document.getElementById('users-list').innerHTML += `<tr style="margin: auto; justify-content: center; text-align: center;">
+                                                                  <td style='list-style-type: none; width: 20vh; font-family: Arial;'>${user[i].Name}</td>
+                                                                  <td style='list-style-type: none; width: 20vh; font-family: Arial;'>${user[i].Email}</td>
+                                                                  <td style='list-style-type: none; width: 20vh; font-family: Arial;'>${user[i].Id}</td>
                                                                 </tr>`
             })
           }

@@ -30,7 +30,8 @@ table {
     margin:auto;
 }
 
-div .ver-estoque{
+.ver-estoque{
     margin: auto;
-    color: black;
+    text-align: center;
+    width: 60%;
 }

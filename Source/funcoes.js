@@ -81,20 +81,20 @@ function listarEstoque() {
     if (typeof(Storage) !== "undefined") {
         let produtos = localStorage.getItem("produtos");
         const element = document.getElementById('teste')
-        element.innerHTML = "<div style='background-color: #4682B4; width: 100%; height: 15vh;' ></div>"
-        element.innerHTML = "<h1 style='margin= auto; font-family: Arial; text-align: center;'>Itens no estoque:</h1>"
+         document.write("<div style='background-color: #4682B4; width: 100%; height: 15vh;' ></div>")
+         document.write("<h1 style='margin= auto; font-family: Arial; text-align: center;'>Itens no estoque:</h1>")
         if (produtos == null)
-        element.innerHTML = "<h3>Ainda não há nenhum item no estoque</h3>";
+        document.write("<h3>Ainda não há nenhum item no estoque</h3>");
         else {
             produtos = JSON.parse(produtos);
             produtos.forEach(produto => {
-                element.innerHTML = "<table style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>";
-                element.innerHTML = "<tr>";
-                element.innerHTML ="<td style='list-style-type: none; width: 25vw; font-family: Arial'>Nome do produto: "+produto.nome+"</td>";
-                element.innerHTML ="<td style='list-style-type: none; width: 25vw; font-family: Arial'>Código do produto: "+produto.codigo+"</td>";
-                element.innerHTML ="<td style='list-style-type: none; width: 25vw; font-family: Arial'>Quantidade no estoque: "+produto.quantidade+"</td>";
-                element.innerHTML ="</tr>";
-                element.innerHTML = "</table>";
+                document.write("<table style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>");
+                document.write("<tr>");
+                document.write("<td style='list-style-type: none; width: 25vw; font-family: Arial'>Nome do produto: "+produto.nome+"</td>");
+                document.write("<td style='list-style-type: none; width: 25vw; font-family: Arial'>Código do produto: "+produto.codigo+"</td>");
+                document.write("<td style='list-style-type: none; width: 25vw; font-family: Arial'>Quantidade no estoque: "+produto.quantidade+"</td>");
+                document.write("</tr>");
+                document.write("</table>");
                 
             });
         }

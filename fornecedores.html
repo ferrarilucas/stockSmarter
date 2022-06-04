@@ -53,24 +53,28 @@
       </header>
 
       <div class="main-title">
-         <h1>Fornecedores</h1>
-      </div>
-      <main>
-        <div>
-          <div class="main-box">
-              <div class="options-box">
-                  <button><i class="fa-solid fa-circle-plus"></i> CADASTRAR FORNECEDOR</button>
-              </div>   
-              <hr>
-              <div class="user-inform">
-                   <h1>Nome</h1>
-                   <h1>CNPJ</h1> 
-                   <h1>ID</h1>
-              </div>
-          </div>         
-        </div>
-      </main>
-
+        <h1>Fornecedores</h1>
+     </div>
+     <main>
+       <div>
+         <div class="main-box">
+             <div class="options-box">
+                 <button id="addUser"><i class="fa-solid fa-circle-plus"></i> CADASTRAR FORNECEDOR</button>
+             </div>
+             <hr>
+             <table class="user-inform">
+               <thead>
+                 <tr>
+                   <td>Nome</td>
+                   <td>CNPJ</td>
+                   <td>ID</td>
+                 </tr>
+               </thead>
+               <tbody id="users-list"></tbody>
+             </table>
+         </div>
+       </div>
+     </main>
 
 
 
