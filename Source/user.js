@@ -39,7 +39,7 @@ const users = (function(){
                            </div>
                            <div class="form-group">
                              <label for="message-text" class="col-form-label">CPF</label>
-                             <input class="form-control" type="text" name="cpf" id="cpf" multiple></input>
+                             <input class="form-control" type="text" name="cpf" id="cpf"></input>
                            </div>
                            <div class="form-group">
                              <label for="message-text" class="col-form-label">lojas autorizadas: </label>
@@ -58,7 +58,7 @@ const users = (function(){
         document.querySelector('body').innerHTML += dlg;
       }
 
-      api.get(`storeList.php`,{
+      api.post(`storeList.php`,{
         I:user.Id
       })
         .then((response) => {
@@ -122,7 +122,7 @@ const users = (function(){
     }
 
     function listUsers(){
-      api.get(`userList.php`,{
+      api.post(`userList.php`,{
         I:user.Id
       })
         .then((response) => {
@@ -130,10 +130,10 @@ const users = (function(){
             const user = response.data.User
             let list = ''
             user.forEach((key,i) => {
-              list += `<tr style="margin: auto; justify-content: center; text-align: center;">
-                         <td style='list-style-type: none; width: 20vh; font-family: Arial;'>${user[i].Name}</td>
-                         <td style='list-style-type: none; width: 20vh; font-family: Arial;'>${user[i].Email}</td>
-                         <td style='list-style-type: none; width: 20vh; font-family: Arial;'>${user[i].Id}</td>
+              list += `<tr>
+                         <td>${user[i].Name}</td>
+                         <td>${user[i].Email}</td>
+                         <td>${user[i].Id}</td>
                        </tr>`
             })
             document.getElementById('users-list').innerHTML = list

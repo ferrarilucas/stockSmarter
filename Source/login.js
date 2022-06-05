@@ -7,7 +7,7 @@ function submitForm(){
         let pass  = encode(document.getElementById('pass').value)
 
 
-        api.get(`login.php`,{
+        api.post(`login.php`,{
           l: login,
           p: pass
         })

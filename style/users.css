@@ -76,13 +76,16 @@ hr{
     width: 100%;
 }
 .user-inform tr{
-    display: contents;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
 }
 
 
 .user-inform td{
-    margin: 20px;
-    font-size: 15px;
+    list-style-type: none;
+    width: 20vh;
+    font-family: Arial;
 }
 
 div.form {
