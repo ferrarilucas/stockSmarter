@@ -1,7 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *' );
-header('Access-Control-Allow-Headers: *' );
-
+header('Content-Type: application/json');
+$_REQUEST = json_decode(file_get_contents("php://input"),true);
 
 include_once('includes.php');
 
