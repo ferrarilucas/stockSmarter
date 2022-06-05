@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="./lib/fontawesome/css/all.css">
     <link rel="stylesheet" href="./style/users.css">
     <link rel="stylesheet" href="./style/estoque.css">
-    <title>Estoque</title>
+    <link rel="stylesheet" href="./style/lojas.css">
+    <title>Lojas</title>
     <link rel="shortcut icon" href="img/logo_transparent.png">
 </head>
-<body onload="listarEstoque()">
+
+<body>
 
     <header>
         <div class="px-3 py-2 bg-secondary text-white">
@@ -54,21 +56,29 @@
         </div>
       </header>
 
-      <div class="main-title"  >
-         <h1>Estoque</h1>
-      </div>
-      <main>
-        <div>
-          <div class="main-box"> 
-              <div class="user-inform">
-                   <h1>Produto</h1>
-                   <h1>ID</h1> 
-                   <h1>Quantidade</h1>
-              </div>
-              <hr>
-          </div>         
-        </div>
-      </main>
+      <div class="main-title">
+        <h1>Lojas</h1>
+     </div>
+     <main>
+       <div>
+         <div class="main-box">
+             <div class="options-box">
+                 <button id="addUser"><i class="fa-solid fa-circle-plus"></i> CADASTRAR LOJA</button>
+             </div>
+             <hr>
+             <table class="user-inform" id="add-loja">
+               <thead>
+                 <tr>
+                   <td>Nome</td>
+                   <td>Produto</td>
+                   <td>CNPJ</td>
+                 </tr>
+               </thead>
+               <tbody id="users-list"></tbody>
+             </table>
+         </div>
+       </div>
+     </main>
 
 
 
@@ -94,5 +104,4 @@
 
       <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script src="Source/funcoes.js"></script>
 </html>
