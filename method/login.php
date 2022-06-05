@@ -1,13 +1,8 @@
 <?php
-header('Access-Control-Allow-Origin: *' );
-header('Access-Control-Allow-Headers: *' );
-
+header('Content-Type: application/json');
+$_REQUEST = json_decode(file_get_contents("php://input"),true);
 
 include_once('includes.php');
-
-$request_body = file_get_contents('php://input');
-
-print_r($request_body);
 
 if(!isset($_REQUEST['l']))
     die('{"Status": "ERRO1", "Text": "Preencha todos os campos"}');
