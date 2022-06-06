@@ -130,11 +130,13 @@ const users = (function(){
             const user = response.data.User
             let list = ''
             user.forEach((key,i) => {
-              list += `<tr>
+              list += `<table style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>
+                      <tr>
                          <td>${user[i].Name}</td>
                          <td>${user[i].Email}</td>
                          <td>${user[i].Id}</td>
-                       </tr>`
+                       </tr>
+                       </table>`
             })
             document.getElementById('users-list').innerHTML = list
           }

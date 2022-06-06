@@ -81,20 +81,20 @@ function listarEstoque() {
     if (typeof(Storage) !== "undefined") {
         let produtos = localStorage.getItem("produtos");
         const element = document.getElementById('teste')
-         document.write("<div style='background-color: #4682B4; width: 100%; height: 15vh;' ></div>")
+         document.write("<div style='background-color: #4682B4; width: 100%; height: 13vh; text-align: center;' ><img style='margin-top: 20px;' src='./img/logo_transparent-80-rec.png'></div>")
          document.write("<h1 style='margin= auto; font-family: Arial; text-align: center;'>Itens no estoque:</h1>")
         if (produtos == null)
         document.write("<h3>Ainda não há nenhum item no estoque</h3>");
         else {
             produtos = JSON.parse(produtos);
             produtos.forEach(produto => {
-                document.write("<table style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>");
+                document.write("<body style='margin: 0; padding: 0;'><table style='margin: auto; justify-content: center; border-bottom: 1px solid grey; border-radius: 2px;'>");
                 document.write("<tr>");
                 document.write("<td style='list-style-type: none; width: 25vw; font-family: Arial'>Nome do produto: "+produto.nome+"</td>");
                 document.write("<td style='list-style-type: none; width: 25vw; font-family: Arial'>Código do produto: "+produto.codigo+"</td>");
                 document.write("<td style='list-style-type: none; width: 25vw; font-family: Arial'>Quantidade no estoque: "+produto.quantidade+"</td>");
                 document.write("</tr>");
-                document.write("</table>");
+                document.write("</table></body>");
                 
             });
         }
