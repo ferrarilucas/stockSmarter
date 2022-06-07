@@ -25,6 +25,7 @@ echo('{"Status": "OK", "Store": [');
             "Id":'.$rowS['id'].',
             "Name":"'.$rowS['name'].'",
             "Cnpj":"'.$rowS['cnpj'].'"
+
         }');
 
 

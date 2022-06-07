@@ -95,8 +95,7 @@ const users = (function(){
       const email = document.getElementById('email').value
       const cpf = document.getElementById('cpf').value
       const password = encode(document.getElementById('password').value)
-      const store = document.getElementById('store').value
-      const storeList = store.split(",")
+      const storeList =  $('#store').val()
       const type = document.getElementById('type').value
 
       if(name.length == 0 || email.length == 0 || cpf.length == 0 || store.length == 0){
@@ -108,7 +107,7 @@ const users = (function(){
         name:name,
         email:email,
         cpf:cpf,
-        storelist:storeList,
+        storelist:storeList.toString(),
         p:password,
         t:type,
         e:'add'
