@@ -5,8 +5,8 @@ const home = (function(){
 
     return {
         init:function(){
-           if(row['Type'] === "ADM" || row['Type'] === "Gerente" ){
-
+           if(row['Type'] === "ADM"  ){
+                document.getElementById('store').classList.remove('d-none')
            }
         },
     }

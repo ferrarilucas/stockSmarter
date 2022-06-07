@@ -16,7 +16,7 @@ $res = $gDb->query("SELECT * FROM user u WHERE u.cpf = '".$cpf."' OR login = '".
 if($gDb->affected_rows($res) > 0 && $_REQUEST['e'] == 'add')
     die('{"Status": "Erro03", "Text": "CPF ou Email já cadastrado"}');
 
-$gDb -> query("INSERT INTO user (name, login, pass,type, storeId, cpf) VALUES ('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[p]','$_REQUEST[t]' , '$_REQUEST[storelist]' ,'$cpf')");
+$gDb -> query("INSERT INTO user (name, login, pass,type, storeId, cpf) VALUES ('$_REQUEST[name]', '$_REQUEST[email]', '$_REQUEST[p]','$_REQUEST[t]' , '".json_encode(implode(", ", $_REQUEST["storelist"]))."' ,'$cpf')");
 
 die('{"Status": "OK", "Text": "Usuario cadastrado com sucesso"}');
 

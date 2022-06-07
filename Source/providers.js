@@ -69,6 +69,11 @@ const providers = (()=>{
 
         document.querySelector('body').innerHTML += dlg;
       }
+      document.getElementById('providerName').value  = ''
+      document.getElementById('phone').value  = ''
+      document.getElementById('cnpj').value = ''
+      document.getElementById('description').value = ''
+
       $('#providerEdit').modal('show')
       $('#providerEdit').ready(function($){
         $('#send').on('click', e=>{saveProvider()})

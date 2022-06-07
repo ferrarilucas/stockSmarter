@@ -43,7 +43,7 @@ const users = (function(){
                            </div>
                            <div class="form-group">
                              <label for="message-text" class="col-form-label">lojas autorizadas: </label>
-                             <select id="store" class="form-control" type="text" name="store" required></select>
+                             <select id="store" class="form-control" type="text" name="store" required multiple></select>
                            </div>
                          </form>
                        </div>
@@ -71,6 +71,10 @@ const users = (function(){
               document.getElementById('store').innerHTML += `<option value="${store[i].Id}">${store[i].Name}</option>`
             })
 
+          document.getElementById('recipient-name').value = ''
+          document.getElementById('email').value = ''
+          document.getElementById('cpf').value = ''
+          document.getElementById('password').value= ''
 
             $('#userEdit').modal('show')
             $('#userEdit').ready(function($){
@@ -107,7 +111,7 @@ const users = (function(){
         storelist:storeList,
         p:password,
         t:type,
-        e:add
+        e:'add'
       })
       .then((response) => {
         if(CheckResponse(response)){
@@ -130,13 +134,11 @@ const users = (function(){
             const user = response.data.User
             let list = ''
             user.forEach((key,i) => {
-              list += `<table style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>
-                      <tr>
+              list += `<tr style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>
                          <td>${user[i].Name}</td>
                          <td>${user[i].Email}</td>
                          <td>${user[i].Id}</td>
-                       </tr>
-                       </table>`
+                       </tr>`
             })
             document.getElementById('users-list').innerHTML = list
           }
