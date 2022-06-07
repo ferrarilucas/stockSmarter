@@ -61,7 +61,7 @@ hr{
     width: 90%;
 }
 
-.user-inform{
+.tableInform{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -69,20 +69,26 @@ hr{
     margin-top: 20px;
 }
 
-.user-inform thead, .user-inform tbody{
+.tableInform thead, .tableInform tbody{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
 }
-.user-inform tr{
-    display: contents;
+
+.tableInform tr{
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    width: 150vh;
 }
 
 
-.user-inform td{
-    margin: 20px;
-    font-size: 15px;
+.tableInform td{
+    border-bottom: solid grey 1px;
+    width: 150vh;
+    list-style-type: none;
+    font-family: Arial;
 }
 
 div.form {

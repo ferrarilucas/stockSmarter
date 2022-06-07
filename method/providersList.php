@@ -15,19 +15,20 @@ if(!$rowS)
     die("{'Status': 'ERRO2'}");
 
 
-$where = ($rowS['type'] == 'ADM' ? 1 : ($rowS['type'] == 'Gerente' ? 's.storeId =('.$rowS['storeId'] .')' : 's.id =('.$rowS['id'] .')'));
+$where = ($rowS['type'] == 'ADM' ? 1 : 'p.storeId =('.$rowS['storeId'] .')');
 
-$res = $gDb->query("SELECT * FROM user s WHERE ". $where);
+$res = $gDb->query("SELECT * FROM providers p WHERE ". $where);
 
-echo('{"Status": "OK", "User": [');
+echo('{"Status": "OK", "Providers": [');
 
 for($x = 0; $row = $gDb->fetch_assoc($res); $x++){
     echo(($x > 0 ? ", " : "").
         '{
         "Id":'.$row['id'].',
-        "Email":"'.$row['login'].'",
         "Name":"'.$row['name'].'",
-        "storeId": "'.$row['storeId'].'"
+        "Cnpj":"'.$row['cnpj'].'",
+        "Phone":"'.$row['phone'].'",
+        "Description":"'.$row['description'].'"
     }');
 }
 

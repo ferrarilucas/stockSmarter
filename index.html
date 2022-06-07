@@ -8,7 +8,11 @@
 </head>
 <body>
     <script>
-        window.location.href = '/stocksmarter/login.html'
+    if(getUserData()){
+      window.location.href = '/stocksmarter/home.html';
+    }else{
+      window.location.href = '/stocksmarter/login.html';
+    }
     </script>
 </body>
 </html>

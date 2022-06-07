@@ -1,4 +1,6 @@
 <?php
+header('Content-Type: application/json');
+$_REQUEST = json_decode(file_get_contents("php://input"),true);
 
 include_once('includes.php');
 
@@ -9,7 +11,7 @@ if(!isset($_REQUEST['I']))
 $res = $gDb->query("SELECT * FROM user u WHERE u.id = '".$_REQUEST['I']."';");
 $row = $gDb->fetch_assoc($res);
 
-$WHERE = ($row['type'] == 'admin') ? "WHERE 1" : "WHERE s.id = '".$row['storeId']."'";
+$WHERE = ($row['type'] == 'ADM') ? "WHERE 1" : "WHERE s.id = '".$row['storeId']."'";
 
 
 $resS = $gDb->query("SELECT * FROM store s ".$WHERE.";");
@@ -21,7 +23,9 @@ echo('{"Status": "OK", "Store": [');
         echo(($st > 0 ? ", " : "").
             '{
             "Id":'.$rowS['id'].',
-            "Name":"'.$rowS['name'].'"
+            "Name":"'.$rowS['name'].'",
+            "Cnpj":"'.$rowS['cnpj'].'"
+
         }');
 
 

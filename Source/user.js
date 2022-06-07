@@ -18,6 +18,14 @@ const users = (function(){
                        <div class="modal-body">
                          <form>
                            <div class="form-group">
+                             <label for="message-text" class="col-form-label">Tipo de usuario: </label>
+                             <select id="type" class="form-control" type="text" name="type" required>
+                                ${user['Type'] == 'ADM' ? '<option value="ADM">Administrador</option>' : ''}
+                                ${user['Type'] == 'ADM' || user['Type'] == 'Gerente' ? '<option value="Gerente">Gerente</option>' : ''}
+                                <option value="Usuario">Funcionario</option>
+                             </select>
+                           </div>
+                           <div class="form-group">
                              <label for="recipient-name" class="col-form-label">Nome</label>
                              <input type="text" name="name" class="form-control" id="recipient-name" required>
                            </div>
@@ -31,11 +39,11 @@ const users = (function(){
                            </div>
                            <div class="form-group">
                              <label for="message-text" class="col-form-label">CPF</label>
-                             <input class="form-control" type="text" name="cpf" id="cpf" multiple></input>
+                             <input class="form-control" type="text" name="cpf" id="cpf"></input>
                            </div>
                            <div class="form-group">
                              <label for="message-text" class="col-form-label">lojas autorizadas: </label>
-                             <select id="store" class="form-control" type="text" name="store" required></select>
+                             <select id="store" class="form-control" type="text" name="store" required multiple></select>
                            </div>
                          </form>
                        </div>
@@ -50,7 +58,9 @@ const users = (function(){
         document.querySelector('body').innerHTML += dlg;
       }
 
-      api.get(`storeList.php?I=${user['Id']}`)
+      api.post(`storeList.php`,{
+        I:user.Id
+      })
         .then((response) => {
           if(CheckResponse(response)){
             const store = response.data.Store
@@ -61,13 +71,17 @@ const users = (function(){
               document.getElementById('store').innerHTML += `<option value="${store[i].Id}">${store[i].Name}</option>`
             })
 
+          document.getElementById('recipient-name').value = ''
+          document.getElementById('email').value = ''
+          document.getElementById('cpf').value = ''
+          document.getElementById('password').value= ''
 
             $('#userEdit').modal('show')
             $('#userEdit').ready(function($){
               $('#send').on('click', e=>{saveUser()})
-              $('#cpf').mask('000.000.000-00', {reverse: true});
             });
             $('#store').multiselect()
+            $('#type').multiselect()
           }
         })
 
@@ -81,20 +95,28 @@ const users = (function(){
       const email = document.getElementById('email').value
       const cpf = document.getElementById('cpf').value
       const password = encode(document.getElementById('password').value)
-      const store = document.getElementById('store').value
-      const storeList = store.split(",")
+      const storeList =  $('#store').val()
+      const type = document.getElementById('type').value
 
       if(name.length == 0 || email.length == 0 || cpf.length == 0 || store.length == 0){
         alert('Preencha todos os campos')
         return
       }
-      console.log(storeList)
 
-      api.post(`createUser.php?name=${name}&email=${email}&cpf=${cpf}&storelist=${storeList}&p=${password}&e=add`)
+      api.post(`createUser.php`,{
+        name:name,
+        email:email,
+        cpf:cpf,
+        storelist:storeList.toString(),
+        p:password,
+        t:type,
+        e:'add'
+      })
       .then((response) => {
         if(CheckResponse(response)){
           alert('Usuário adicionado com sucesso', 'success')
           $('#userEdit').modal('hide')
+          listUsers()
         }
         else{
           alert(response['Status'], response['Text'])
@@ -103,18 +125,21 @@ const users = (function(){
     }
 
     function listUsers(){
-      api.get(`userList.php?I=${user['Id']}`)
+      api.post(`userList.php`,{
+        I:user.Id
+      })
         .then((response) => {
           if(CheckResponse(response)){
             const user = response.data.User
-            document.getElementById('users-list').innerHTML = ''
+            let list = ''
             user.forEach((key,i) => {
-              document.getElementById('users-list').innerHTML += `<tr>
-                                                                  <td>${user[i].Name}</td>
-                                                                  <td>${user[i].Email}</td>
-                                                                  <td>${user[i].Id}</td>
-                                                                </tr>`
+              list += `<tr style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>
+                         <td>${user[i].Name}</td>
+                         <td>${user[i].Email}</td>
+                         <td>${user[i].Id}</td>
+                       </tr>`
             })
+            document.getElementById('users-list').innerHTML = list
           }
         })
     }
