@@ -24,9 +24,9 @@ const products = (() => {
 
     }
 
-    function saveProduct(id){
+    function saveProduct(id, StoreId){
       const name =  document.getElementById('productName').value
-      const store =  $('#store').val()
+      const store =  StoreId > 0 ? StoreId : $('#store').val()
       const qtd = document.getElementById('qtd').value
       let productId = typeof id !== 'undefined' || id > 0 ? id : 0
 
@@ -81,7 +81,8 @@ const products = (() => {
                                  </div>
                                  <div class="form-group">
                                     <label for="message-text" class="col-form-label">loja: </label>
-                                    <select id="store" class="form-control" type="text" name="store" required></select>
+                                    <select id="store" class="form-control d-none" type="text" name="store" required></select>
+                                    <span id="storeName" class="d-none"></span>
                                  </div>
                                  <div class="form-group">
                                    <label for="message-text" class="col-form-label">Quantidade: </label>
@@ -99,13 +100,7 @@ const products = (() => {
 
               document.querySelector('body').innerHTML += dlg;
 
-               $('#productEdit').ready(function($){
-                    $('#send').on('click', e=>{
-                      saveProduct(isEdit?productId:0)
-                   })
-              });
 
-               $('#store').multiselect()
 
                $('#productEdit').on('hide.bs.modal', function (event) {
                      $('#productEdit').remove()
@@ -130,25 +125,39 @@ const products = (() => {
                             product: productId
                         }).then((response) => {
                             if(CheckResponse(response)){
-                                let product = response.data.Products[0]
+                                const product = response.data.Products[0]
+                                document.getElementById('storeName').classList.remove('d-none')
+                                document.getElementById('store').classList.add('d-none')
                                 document.getElementById('idLabel').classList.remove('d-none')
                                 document.getElementById('productId').innerHTML = product.Id
                                 document.getElementById('productName').value = product.Name
-                                document.getElementById('store').value = product.StoreId
+                                document.getElementById('storeName').innerHTML = product.StoreName
                                 document.getElementById('qtd').value = product.Qtd
 
+                                $('#productEdit').ready(function($){
+                                     $('#send').on('click', e=>{
+                                       saveProduct(productId, product.StoreId)
+                                     })
+                                });
                             }
                         })
                     }else{
+                        document.getElementById('storeName').classList.add('d-none')
+                        document.getElementById('store').classList.remove('d-none')
                         document.getElementById('idLabel').classList.add('d-none')
                         document.getElementById('productId').innerHTML = ''
                         document.getElementById('productName').value = ''
                         document.getElementById('qtd').value = ''
 
+                        $('#store').multiselect()
+
+                        $('#productEdit').ready(function($){
+                            $('#send').on('click', e=>{
+                            saveProduct()
+                            })
+                        });
                     }
-
                     $('#productEdit').modal('show')
-
                 }
             })
 

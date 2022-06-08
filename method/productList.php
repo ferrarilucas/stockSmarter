@@ -20,12 +20,15 @@ $resS = $gDb->query("SELECT * FROM products p ".$WHERE.";");
 if($gDb->affected_rows() == 0)
     die("{'Status': 'ERRO2'}");
 
-$resU = $gDb->query("SELECT * FROM store s WHERE s.id = '".$row['storeId']."';");
-$rowU = $gDb->fetch_assoc($resU);
 
 echo '{"Status": "OK", "Products": [';
 
 for($i = 0; $rowS = $gDb->fetch_assoc($resS); $i++){
+
+    $resU = $gDb->query("SELECT * FROM store s WHERE s.id = '".$rowS['storeId']."';");
+    $rowU = $gDb->fetch_assoc($resU);
+    $gDb->free_result($resU);
+
     echo ($i > 0 ? ", " : "").
         '{
             "Id":'.$rowS['id'].',
@@ -33,7 +36,8 @@ for($i = 0; $rowS = $gDb->fetch_assoc($resS); $i++){
             "StoreId":"'.$rowS['storeId'].'",
             "StoreName":"'.$rowU['name'].'",
             "Qtd":'.$rowS['qtd'].'
-        }';
+        }
+        ';
 }
 
 echo ']}';

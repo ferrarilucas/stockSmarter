@@ -136,7 +136,7 @@ const users = (function(){
               list += `<tr style='margin: auto; justify-content: center; border: 1px solid grey; border-radius: 5px;'>
                          <td>${user[i].Name}</td>
                          <td>${user[i].Email}</td>
-                         <td>${user[i].Id}</td>
+                         <td>${(user[i].type == 'ADM' ? 'Administrador' : (user[i].type == 'Usuario'? 'Funcionário' : user[i].type) )}</td>
                        </tr>`
             })
             document.getElementById('users-list').innerHTML = list

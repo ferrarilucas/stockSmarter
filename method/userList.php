@@ -27,7 +27,8 @@ for($x = 0; $row = $gDb->fetch_assoc($res); $x++){
         "Id":'.$row['id'].',
         "Email":"'.$row['login'].'",
         "Name":"'.$row['name'].'",
-        "storeId": "'.$row['storeId'].'"
+        "storeId": "'.$row['storeId'].'",
+        "type":"'.$row['type'].'"
     }');
 }
 

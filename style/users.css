@@ -61,18 +61,18 @@ hr{
     width: 90%;
 }
 
+table{
+    table-layout: auto;
+    text-align: left;
+}
+
 .tableInform{
-    display: flex;
-    flex-direction: column;
     width: 100%;
     margin: auto;
     margin-top: 20px;
 }
 
 .tableInform thead, .tableInform tbody{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
     width: 100%;
 }
 
