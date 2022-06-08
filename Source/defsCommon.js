@@ -1,5 +1,5 @@
 
-const backUrl = 'http://localhost/stocksmarter/method/'
+const backUrl = 'http://localhost/method/'
 
 const api = axios.create({
   baseURL:  backUrl,
