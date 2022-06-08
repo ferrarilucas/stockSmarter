@@ -20,7 +20,7 @@ function submitForm(){
                 }
                 data = JSON.stringify(data)
                 sessionStorage.setItem('stockSession', encode(data))
-                window.location.href = "/stocksmarter/home.html"
+                window.location.href = "/home.html"
             }
             else{
               console.log(response.data['Text'])
