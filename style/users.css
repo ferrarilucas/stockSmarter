@@ -80,15 +80,17 @@ hr{
     margin: auto;
     justify-content: center;
     text-align: center;
-    width: 150vh;
+    width: 150vw;
 }
 
 
 .tableInform td{
     border-bottom: solid grey 1px;
-    width: 150vh;
+    width: 23rem;
     list-style-type: none;
     font-family: Arial;
+    border-right: solid grey 1px;
+    overflow-x: clip;
 }
 
 div.form {
