@@ -1,7 +1,8 @@
 
-const backUrl = 'http://localhost/method/'
+const backUrl = window.location.href.indexOf('stocksmarter.local') > 0?'http://stocksmarter.local/method' : 'http://18.231.96.214/method/'
 
 const api = axios.create({
+  headers: { 'Authorization': 'Basic bWFzdGVyOjEyMzQ1', 'Content-Type': 'application/x-www-form-urlencoded', 'scope': 'password',},
   baseURL:  backUrl,
 });
 
