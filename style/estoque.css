@@ -1,37 +1,8 @@
-.main-form{
-    height: 40vh;
-    width: 60vw;
-    margin: auto;
-
+.options-box button + button {
+    margin-left: 0;
 }
 
-.alinharRotulos {
-    text-align: right;
-}
-
-.alinhaBtns {
-    width:30%;
-    background-color: #d3d3d3;
+a {
+    text-decoration: none;
     color: black;
-    border:0px;
-    padding:2px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-table {
-    clear:both; 
-    background-color: #4682B4;
-    border-radius: 10px; 
-    color:white;
-    padding:20px;
-    width:500px;
-    height: 30vh;
-    margin:auto;
-}
-
-.ver-estoque{
-    margin: auto;
-    text-align: center;
-    width: 60%;
 }

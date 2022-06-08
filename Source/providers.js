@@ -27,7 +27,7 @@ const providers = (()=>{
 
     function addProvider(){
 
-      let dlg = document.getElementById('userEdit')
+      let dlg = document.getElementById('providerEdit')
 
       if( dlg == null){
           dlg = `<div class="modal fade" id="providerEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

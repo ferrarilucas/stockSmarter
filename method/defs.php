@@ -1,9 +1,13 @@
 <?php
 
-$dbServer = '127.0.0.1';
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
+$dbServer = 'database-1.clahzuwftpjn.sa-east-1.rds.amazonaws.com';
 $dbUser = 'stockAdmin';
 $dbPass = 'admin123';
-$dbName = 'stockSmarter';
+$dbName = 'stocksmarter';
 
 function cnpj_validate($cnpj)
 {
@@ -68,4 +72,8 @@ function validaCPF($cpf) {
     }
     return true;
 
+}
+
+function isDevServer () {
+	return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
 }
